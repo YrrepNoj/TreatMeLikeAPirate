@@ -18,11 +18,13 @@ class App extends Component {
   render() {
     const panels = [
       { id: "1", name: "Geographic Display", content: <GeoDisplay /> },
-      { id: "2", name: "Data Manager", content: <p>hello world 2</p> }
+      { id: "2", name: "Data Manager", content: <p>hello world 2</p> },
+      { id: "3", name: "Timeline", content: <Timeline /> }
     ];
     const layout = [
       { i: "1", x: 0, y: 0, w: 20, h: 20 },
-      { i: "2", x: 20, y: 0, w: 10, h: 10 }
+      { i: "2", x: 20, y: 0, w: 10, h: 10 },
+      { i: "3", x: 20, y: 0, w: 10, h: 10 }
     ];
     return <Grid items={panels} layout={layout} />;
   }
