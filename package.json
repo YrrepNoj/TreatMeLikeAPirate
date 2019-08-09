@@ -13,12 +13,15 @@
     "material-ui-pickers": "^2.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-grid-layout": "^0.16.6",
     "react-leaflet": "^2.4.0",
     "react-redux": "^7.1.0",
     "react-scripts": "0.9.5",
     "react-visjs-timeline": "^1.5.0",
     "redux": "^4.0.4",
-    "vis": "^4.21.0-EOL"
+    "vis": "^4.21.0-EOL",
+    "react-sizeme": "^2.6.7",
+    "redux-saga": "^1.0.5"
   },
   "devDependencies": {},
   "scripts": {
