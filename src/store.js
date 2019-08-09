@@ -8,7 +8,7 @@ const initialState = {
       id: 0,
       type: OBSERVATION_TYPES.UFO,
       year: 2012,
-      decription: "Hello world",
+      description: "Hello world",
       coord: { lat: 49.1234, long: 12.001 },
     },
   ],

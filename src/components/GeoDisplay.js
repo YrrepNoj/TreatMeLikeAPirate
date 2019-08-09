@@ -6,9 +6,9 @@ class GeoDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
-      lat: 51.505,
-      lng: -0.09,
-      zoom: 13,
+      lat: 38.859,
+      lng: -77.366,
+      zoom: 11
     };
   }
   render() {
@@ -32,12 +32,12 @@ class GeoDisplay extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  ...state,
+  ...state
 });
 
 const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(GeoDisplay);
