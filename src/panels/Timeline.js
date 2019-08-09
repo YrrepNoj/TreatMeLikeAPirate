@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Timeline from "react-visjs-timeline";
-import { findDOMNode } from "react-dom";
+import "./hotfix.css";
+import MyDatePicker from "./../components/DatePicker";
 
 class MyTimeline extends React.Component {
   render() {
@@ -19,11 +20,11 @@ class MyTimeline extends React.Component {
         }
       }
     };
-    return <Timeline options={options} />;
-  }
-
-  componentDidMount() {
-    findDOMNode(this).children[0].style.visibility = "visible";
+    return (
+      <Fragment>
+        <Timeline options={options} />
+      </Fragment>
+    );
   }
 }
 
