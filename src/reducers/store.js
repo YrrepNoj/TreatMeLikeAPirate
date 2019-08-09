@@ -36,6 +36,9 @@ const initialState = {
       coord: { lat: 49.1234, long: 12.001 },
     },
   ],
+  filters: {
+    interval: [1800, 2019],
+  },
 };
 
 export default function configureStore() {
