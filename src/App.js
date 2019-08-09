@@ -20,14 +20,14 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state,
+  ...state
 });
 
 const mapDispatchToProps = dispatch => ({
-  getObservations: () => dispatch({ type: GET_OBSERVATIONS }),
+  getObservations: () => dispatch({ type: GET_OBSERVATIONS })
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(App);
