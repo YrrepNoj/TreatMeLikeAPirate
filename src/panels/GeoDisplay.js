@@ -7,10 +7,11 @@ class GeoDisplay extends React.Component {
     super();
     this.state = {
       lat: 38.859,
-      lng: -77.366,
-      zoom: 11
+      lng: -95,
+      zoom: 5,
     };
   }
+
   render() {
     const { observations } = this.props;
     const position = [this.state.lat, this.state.lng];
@@ -21,7 +22,7 @@ class GeoDisplay extends React.Component {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
         {observations.map(obs => (
-          <Marker position={position}>
+          <Marker key={obs.id} position={position}>
             <Popup>
               <span>{obs.description}</span>
             </Popup>
@@ -32,12 +33,12 @@ class GeoDisplay extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  ...state
+  ...state,
 });
 
 const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(GeoDisplay);
