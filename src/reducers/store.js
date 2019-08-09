@@ -7,7 +7,7 @@ const initialState = {
   ufoObservations: [],
   shipwreckObservations: [],
   filters: {
-    interval: [1800, 2019],
+    interval: [1700, 2019],
   },
 };
 

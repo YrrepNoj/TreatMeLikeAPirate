@@ -7,7 +7,7 @@ import Timeline from "./panels/Timeline";
 import { connect } from "react-redux";
 import {
   GET_UFO_OBSERVATIONS_REQUESTED,
-  GET_SHIPWRECK_OBSERVATIONS_REQUESTED
+  GET_SHIPWRECK_OBSERVATIONS_REQUESTED,
 } from "./reducers/actions";
 
 class App extends Component {
@@ -19,12 +19,10 @@ class App extends Component {
   render() {
     const panels = [
       { id: "1", name: "Geographic Display", content: <GeoDisplay /> },
-      { id: "2", name: "Filter", content: <p>hello world 2</p> },
       { id: "3", name: "Timeline", content: <Timeline /> },
     ];
     const layout = [
-      { i: "1", x: 0, y: 0, w: 20, h: 17 },
-      { i: "2", x: 20, y: 0, w: 10, h: 10 },
+      { i: "1", x: 0, y: 0, w: 30, h: 17 },
       { i: "3", x: 0, y: 17, w: 30, h: 7 },
     ];
     return <Grid items={panels} layout={layout} />;

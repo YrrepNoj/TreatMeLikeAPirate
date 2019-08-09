@@ -17,7 +17,12 @@ const styles = {
 class MyTimeline extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { startYear: "1999", endYear: "2019" };
+    this.state = {
+      startYear: "100",
+      endYear: "2019",
+      startYearTemp: "1800",
+      endYearTemp: "2019",
+    };
   }
   handleSubmit = event => {
     this.setState({ startYear: this.state.startYearTemp });
@@ -27,6 +32,10 @@ class MyTimeline extends React.Component {
       this.state.endYearTemp,
     ]);
   };
+
+  componentDidMount() {
+    this.props.setIntervalFilter([this.state.startYear, this.state.endYear]);
+  }
   render() {
     const { startYear, endYear } = this.state;
     const options = {
@@ -34,7 +43,7 @@ class MyTimeline extends React.Component {
       height: "100px",
       stack: false,
       showMajorLabels: true,
-      // showCurrentTime: true,
+      showCurrentTime: false,
       start: startYear,
       end: endYear,
       zoomMax: 100000000000000,
@@ -50,10 +59,12 @@ class MyTimeline extends React.Component {
       <div style={styles.wrapper}>
         Start year:
         <TextField
+          defaultValue={this.state.startYear}
           onChange={e => this.setState({ startYearTemp: e.target.value })}
         />
         End year:
         <TextField
+          defaultValue={this.state.endYear}
           onChange={e => this.setState({ endYearTemp: e.target.value })}
         />
         <Button onClick={this.handleSubmit}>Update</Button>
