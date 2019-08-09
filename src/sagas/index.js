@@ -19,7 +19,6 @@ const shipwrecks = {
 }
 const shipwrecksArray = [
      'List_of_shipwrecks_in_international_waters',
-     'List_of_shipwrecks_in_the_Atlantic_Ocean',
      'List_of_shipwrecks_in_the_Pacific_Ocean',
      'List_of_shipwrecks_in_the_Indian_Ocean',
      'List_of_shipwrecks_of_the_United_States'

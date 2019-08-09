@@ -7,6 +7,7 @@ const initialState = {
   ufoObservations: [
     {
       id: 0,
+      name: "thisIsAName",
       type: OBSERVATION_TYPES.UFO,
       year: 2012,
       description: "Hello world",
@@ -25,6 +26,7 @@ const initialState = {
       year: 2013,
       description: "Hello world3",
       coord: [38.1234, -85.001],
+      hynekScale: 3
     },
   ],
   shipwreckObservations: [
