@@ -64,6 +64,10 @@ export function parseShipwreckData(rawData) {
       pieces[0] = pieces[0].substr(2, pieces[0].length - 4);
 
       // date
+      if (!pieces[1] || !pieces[2]) {
+        continue;
+      }
+
       pieces[1] = pieces[1].substr(1);
       if (pieces[1].length > 4) {
         pieces[1] = pieces[1].substring(pieces[1].length - 4);
