@@ -20,31 +20,15 @@ class GeoDisplay extends React.Component {
   }
   render() {
     // const { ufoObservations } = this.props;
+    const { shipwreckObservations } = this.props;
+    const combinedObservations = shipwreckObservations;
 
-    const ufoObservations = [
-      {
-        id: 0,
-        type: OBSERVATION_TYPES.UFO,
-        year: 2012,
-        description: "Hello world",
-        coord: [43.1234, -80.001],
-      },
-      {
-        id: 1,
-        type: OBSERVATION_TYPES.UFO,
-        year: 2012,
-        description: "Hello world2",
-        coord: [43.1234, -90.001],
-      },
-      {
-        id: 2,
-        type: OBSERVATION_TYPES.UFO,
-        year: 2013,
-        description: "Hello world3",
-        coord: [38.1234, -85.001],
-      },
-    ];
-
+    let observations = [];
+    if (combinedObservations && combinedObservations.length) {
+      observations = combinedObservations.filter(
+        el => typeof Number(el.year) === "number" && Number(el.year) < 3000,
+      );
+    }
     const position = [this.state.lat, this.state.lng];
     return (
       <Map
@@ -62,8 +46,8 @@ class GeoDisplay extends React.Component {
           time=""
           tilematrixset="GoogleMapsCompatible_Level"
         />
-        {ufoObservations &&
-          ufoObservations.map(obs => (
+        {observations &&
+          observations.map(obs => (
             <Marker key={obs.id} position={obs.coord}>
               <Popup observation={obs} />
             </Marker>
