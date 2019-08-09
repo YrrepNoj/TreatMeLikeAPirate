@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import GeoDisplay from "./panels/GeoDisplay";
 import { connect } from "react-redux";
-import { GET_OBSERVATIONS } from "./actions";
+import {
+  GET_UFO_OBSERVATIONS_REQUESTED,
+  GET_SHIPWRECK_OBSERVATIONS_REQUESTED,
+} from "./reducers/actions";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    null;
+    this.props.getShipwrecks();
+    this.props.getUFOs();
   }
   render() {
     return (
@@ -24,7 +28,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getObservations: () => dispatch({ type: GET_OBSERVATIONS }),
+  getShipwrecks: () => dispatch({ type: GET_SHIPWRECK_OBSERVATIONS_REQUESTED }),
+  getUFOs: () => dispatch({ type: GET_UFO_OBSERVATIONS_REQUESTED }),
 });
 
 export default connect(

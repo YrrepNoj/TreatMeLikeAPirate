@@ -20,13 +20,14 @@ class GeoDisplay extends React.Component {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
-        {observations.map(obs => (
-          <Marker key={obs.id} position={position}>
-            <Popup>
-              <span>{obs.description}</span>
-            </Popup>
-          </Marker>
-        ))}
+        {observations &&
+          observations.map(obs => (
+            <Marker key={obs.id} position={position}>
+              <Popup>
+                <span>{obs.description}</span>
+              </Popup>
+            </Marker>
+          ))}
       </Map>
     );
   }
