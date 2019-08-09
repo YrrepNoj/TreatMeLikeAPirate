@@ -1,10 +1,29 @@
 import React, { Component } from "react";
-import SimpleExample from './simple'
+import Header from "./components/Header";
+import GeoDisplay from "./components/GeoDisplay";
+import { connect } from "react-redux";
+import { GET_OBSERVATIONS } from "./actions";
 
 class App extends Component {
   render() {
-    return <SimpleExample />
+    return (
+      <div>
+        <Header />
+        <GeoDisplay />
+      </div>
+    );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  ...state,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getObservations: () => dispatch({ type: GET_OBSERVATIONS }),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
