@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-import GeoDisplay from "./panels/GeoDisplay";
+import GeoDisplay from "./panels/Geo/GeoDisplay";
 import Grid from "./components/Grid";
 import { connect } from "react-redux";
 import {
@@ -15,7 +15,7 @@ class App extends Component {
     this.props.getUFOs();
   }
   render() {
-    const items = [
+    const panels = [
       { id: "1", name: "Geographic Display", content: <GeoDisplay /> },
       { id: "2", name: "Data Manager", content: <p>hello world 2</p> },
     ];
@@ -23,13 +23,7 @@ class App extends Component {
       { i: "1", x: 0, y: 0, w: 20, h: 20 },
       { i: "2", x: 20, y: 0, w: 10, h: 10 },
     ];
-    return (
-      <div>
-        <Grid items={items} layout={layout} />
-        {/* <Header />
-         */}
-      </div>
-    );
+    return <Grid items={panels} layout={layout} />;
   }
 }
 

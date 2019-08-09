@@ -9,7 +9,7 @@ class GeoDisplay extends React.Component {
     this.state = {
       lat: 38.859,
       lng: -95,
-      zoom: 5,
+      zoom: 4,
     };
   }
   componentDidUpdate() {
@@ -17,7 +17,7 @@ class GeoDisplay extends React.Component {
     map.invalidateSize();
   }
   render() {
-    const { observations } = this.props;
+    const { ufoObservations } = this.props;
     const position = [this.state.lat, this.state.lng];
     return (
       <Map
@@ -35,11 +35,14 @@ class GeoDisplay extends React.Component {
           time=""
           tilematrixset="GoogleMapsCompatible_Level"
         />
-        {observations &&
-          observations.map(obs => (
-            <Marker key={obs.id} position={position}>
+        {ufoObservations &&
+          ufoObservations.map(obs => (
+            <Marker key={obs.id} position={obs.coord}>
               <Popup>
-                <span>{obs.description}</span>
+                <p>{`${obs.description}`}</p>
+                <p>{`${obs.description}`}</p>
+                <p>{`${obs.description}`}</p>
+                <p>{`${obs.description}`}</p>
               </Popup>
             </Marker>
           ))}

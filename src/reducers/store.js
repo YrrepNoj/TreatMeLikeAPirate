@@ -9,7 +9,21 @@ const initialState = {
       type: OBSERVATION_TYPES.UFO,
       year: 2012,
       description: "Hello world",
-      coord: { lat: 49.1234, long: 12.001 },
+      coord: [43.1234, -80.001],
+    },
+    {
+      id: 1,
+      type: OBSERVATION_TYPES.UFO,
+      year: 2012,
+      description: "Hello world2",
+      coord: [43.1234, -90.001],
+    },
+    {
+      id: 2,
+      type: OBSERVATION_TYPES.UFO,
+      year: 2013,
+      description: "Hello world3",
+      coord: [38.1234, -85.001],
     },
   ],
   shipwreckObservations: [
@@ -21,7 +35,7 @@ const initialState = {
       decription: "Hello world",
       coord: { lat: 49.1234, long: 12.001 },
     },
-  ]
+  ],
 };
 
 export default function configureStore() {
