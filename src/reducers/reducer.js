@@ -8,6 +8,8 @@ import {
 export default (state = {}, action) => {
   switch (action.type) {
     case GET_SHIPWRECK_OBSERVATIONS_SUCCESS:
+      console.log("we are a success at shipwrecking")
+      console.log(action.shipwreckObservations)
       return {
         shipwreckObservations: action.shipwreckObservations,
         ...state,
@@ -18,6 +20,7 @@ export default (state = {}, action) => {
         ...state,
       };
     case GET_UFO_OBSERVATIONS_SUCCESS:
+      console.log(action.ufoObservations)
       return {
         ufoObservations: action.ufoObservations,
         ...state,

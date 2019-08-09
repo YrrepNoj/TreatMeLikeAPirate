@@ -1,7 +1,8 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import reducer from "./reducer";
 import OBSERVATION_TYPES from "../utils/observation_types";
-
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "../sagas/index"
 const initialState = {
   ufoObservations: [
     {
@@ -38,11 +39,16 @@ const initialState = {
   ],
 };
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ &&
+window.__REDUX_DEVTOOLS_EXTENSION__() || compose;
+
 export default function configureStore() {
-  return createStore(
+  const sagaMiddleware = createSagaMiddleware()
+  let store =  createStore(
     reducer,
-    initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(sagaMiddleware)
   );
+  sagaMiddleware.run(rootSaga)
+  return store;
+
 }

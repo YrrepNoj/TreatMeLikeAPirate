@@ -32,8 +32,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getShipwrecks: () => dispatch({ type: GET_SHIPWRECK_OBSERVATIONS_REQUESTED }),
-  getUFOs: () => dispatch({ type: GET_UFO_OBSERVATIONS_REQUESTED }),
+  getShipwrecks: () => {
+    console.log("dispatching the shipwreck")
+    dispatch({ type: GET_SHIPWRECK_OBSERVATIONS_REQUESTED })
+  
+  },
+  getUFOs: () => {
+    dispatch({ type: GET_UFO_OBSERVATIONS_REQUESTED })
+  }
+  
 });
 
 export default connect(
