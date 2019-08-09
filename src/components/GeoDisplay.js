@@ -11,6 +11,7 @@ class GeoDisplay extends React.Component {
       zoom: 11
     };
   }
+
   render() {
     const { observations } = this.props;
     const position = [this.state.lat, this.state.lng];
