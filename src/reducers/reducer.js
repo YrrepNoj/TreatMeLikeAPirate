@@ -3,6 +3,7 @@ import {
   GET_SHIPWRECK_OBSERVATIONS_FAILED,
   GET_UFO_OBSERVATIONS_SUCCESS,
   GET_UFO_OBSERVATIONS_FAILED,
+  SET_INTERVAL_FILTER,
 } from "./actions";
 
 import { parseUFOData, parseShipwreckData } from '../utils/dataParser'
@@ -31,6 +32,10 @@ export default (state = {}, action) => {
       return {
         ufoObservations: [],
         ...state,
+      };
+    case SET_INTERVAL_FILTER:
+      return {
+        filters: { ...state.filters, interval: [...action.interval] },
       };
     default:
       return state;

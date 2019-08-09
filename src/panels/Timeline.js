@@ -3,6 +3,8 @@ import Timeline from "react-visjs-timeline";
 import "./hotfix.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { SET_INTERVAL_FILTER } from "../reducers/actions";
 
 const styles = {
   wrapper: {
@@ -20,6 +22,10 @@ class MyTimeline extends React.Component {
   handleSubmit = event => {
     this.setState({ startYear: this.state.startYearTemp });
     this.setState({ endYear: this.state.endYearTemp });
+    this.props.setIntervalFilter([
+      this.state.startYearTemp,
+      this.state.endYearTemp,
+    ]);
   };
   render() {
     const { startYear, endYear } = this.state;
@@ -57,4 +63,16 @@ class MyTimeline extends React.Component {
   }
 }
 
-export default MyTimeline;
+const mapStateToProps = state => ({
+  ...state,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setIntervalFilter: interval =>
+    dispatch({ type: SET_INTERVAL_FILTER, interval: interval }),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MyTimeline);

@@ -39,6 +39,9 @@ const initialState = {
       coord: { lat: 49.1234, long: 12.001 },
     },
   ],
+  filters: {
+    interval: [1800, 2019],
+  },
 };
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ &&
