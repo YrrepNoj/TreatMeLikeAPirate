@@ -55,6 +55,20 @@ class MyTimeline extends React.Component {
         },
       },
     };
+
+    const { shipwreckObservations } = this.props;
+
+    let items = [];
+
+    console.log(shipwreckObservations);
+    if (shipwreckObservations) {
+      items = shipwreckObservations.map((el, i) => ({
+        id: i,
+        start: new Date(Number(el.year), 1, 1),
+        end: new Date(Number(el.year), 12, 1),
+      }));
+    }
+
     return (
       <div style={styles.wrapper}>
         Start year:
@@ -68,7 +82,7 @@ class MyTimeline extends React.Component {
           onChange={e => this.setState({ endYearTemp: e.target.value })}
         />
         <Button onClick={this.handleSubmit}>Update</Button>
-        <Timeline options={options} />
+        <Timeline items={items} options={options} />
       </div>
     );
   }
