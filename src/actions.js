@@ -1,1 +1,0 @@
-export const GET_OBSERVATIONS = "GET_OBSERVATIONS"

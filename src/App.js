@@ -2,21 +2,29 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import GeoDisplay from "./panels/GeoDisplay";
 import Timeline from "./panels/Timeline";
+import Grid from "./components/Grid";
 import { connect } from "react-redux";
-import { GET_OBSERVATIONS } from "./actions";
+import {
+  GET_UFO_OBSERVATIONS_REQUESTED,
+  GET_SHIPWRECK_OBSERVATIONS_REQUESTED
+} from "./reducers/actions";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    null;
+    this.props.getShipwrecks();
+    this.props.getUFOs();
   }
   render() {
-    return (
-      <div>
-        <Header />
-        <GeoDisplay />
-      </div>
-    );
+    const panels = [
+      { id: "1", name: "Geographic Display", content: <GeoDisplay /> },
+      { id: "2", name: "Data Manager", content: <p>hello world 2</p> }
+    ];
+    const layout = [
+      { i: "1", x: 0, y: 0, w: 20, h: 20 },
+      { i: "2", x: 20, y: 0, w: 10, h: 10 }
+    ];
+    return <Grid items={panels} layout={layout} />;
   }
 }
 
@@ -25,7 +33,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getObservations: () => dispatch({ type: GET_OBSERVATIONS })
+  getShipwrecks: () => {
+    console.log("dispatching the shipwreck");
+    dispatch({ type: GET_SHIPWRECK_OBSERVATIONS_REQUESTED });
+  },
+  getUFOs: () => {
+    dispatch({ type: GET_UFO_OBSERVATIONS_REQUESTED });
+  }
 });
 
 export default connect(
