@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import Popup from "./Popup";
 import sizeMe from "react-sizeme";
+import OBSERVATION_TYPES from "../../utils/observation_types";
 
 class GeoDisplay extends React.Component {
   constructor() {
@@ -18,7 +19,32 @@ class GeoDisplay extends React.Component {
     map.invalidateSize();
   }
   render() {
-    const { ufoObservations } = this.props;
+    // const { ufoObservations } = this.props;
+
+    const ufoObservations = [
+      {
+        id: 0,
+        type: OBSERVATION_TYPES.UFO,
+        year: 2012,
+        description: "Hello world",
+        coord: [43.1234, -80.001],
+      },
+      {
+        id: 1,
+        type: OBSERVATION_TYPES.UFO,
+        year: 2012,
+        description: "Hello world2",
+        coord: [43.1234, -90.001],
+      },
+      {
+        id: 2,
+        type: OBSERVATION_TYPES.UFO,
+        year: 2013,
+        description: "Hello world3",
+        coord: [38.1234, -85.001],
+      },
+    ];
+
     const position = [this.state.lat, this.state.lng];
     return (
       <Map

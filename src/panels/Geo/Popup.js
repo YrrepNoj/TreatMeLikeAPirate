@@ -1,7 +1,5 @@
 import React from "react";
 import { Popup } from "react-leaflet";
-import observableSymbol from "symbol-observable";
-
 const styles = {
   wrapper: {
     display: "flex",
@@ -20,6 +18,10 @@ const styles = {
     height: "auto",
     minHeight: "250px",
     backgroundColor: "#ccc",
+    color: "#000",
+  },
+  strong: {
+    fontWeight: "bold",
   },
 };
 
@@ -28,9 +30,20 @@ const CustomPopup = props => {
   return (
     <Popup>
       <div style={styles.wrapper}>
-        <div style={styles.header} />
+        <div style={styles.header}>{observation.name}</div>
         <div style={styles.content}>
-          <p> {`Type: ${observation.type}`}</p>
+          <p>
+            <span style={styles.strong}>Year: </span> {observation.year}
+          </p>
+          <p>
+            <span style={styles.strong}>Type: </span> {observation.type}
+          </p>
+          <p>
+            <span style={styles.strong}>Hynek score: </span> {observation.hynek}
+          </p>
+          <p>
+            <span style={styles.strong}>About: </span> {observation.description}
+          </p>
         </div>
       </div>
     </Popup>
