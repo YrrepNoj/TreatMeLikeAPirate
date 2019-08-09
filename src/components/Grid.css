@@ -5,7 +5,7 @@
 .react-grid-item {
   transition: all 200ms ease;
   transition-property: left, top;
-  outline: 2px solid #777;
+  outline: 2px solid #ccc;
 }
 .react-grid-item.cssTransforms {
   transition-property: transform;
@@ -58,10 +58,15 @@
   border-radius: 0;
 }
 
+.leaflet-popup-content {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   font-family: "courier";
   color: #fff;
-  background-color: #000;
+  background-color: #666;
 }
 
 #map {

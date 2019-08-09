@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map, TileLayer, Marker } from "react-leaflet";
+import Popup from "./Popup";
 import sizeMe from "react-sizeme";
 
 class GeoDisplay extends React.Component {
@@ -38,12 +39,7 @@ class GeoDisplay extends React.Component {
         {ufoObservations &&
           ufoObservations.map(obs => (
             <Marker key={obs.id} position={obs.coord}>
-              <Popup>
-                <p>{`${obs.description}`}</p>
-                <p>{`${obs.description}`}</p>
-                <p>{`${obs.description}`}</p>
-                <p>{`${obs.description}`}</p>
-              </Popup>
+              <Popup observation={obs} />
             </Marker>
           ))}
       </Map>

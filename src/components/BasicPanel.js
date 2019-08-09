@@ -7,10 +7,11 @@ const styles = {
   },
   header: {
     height: "30px",
-    backgroundColor: "#555",
+    background: "#555",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#469",
   },
   content: { flex: "1" },
 };
