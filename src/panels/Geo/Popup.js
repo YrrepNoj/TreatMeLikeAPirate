@@ -19,6 +19,7 @@ const styles = {
     minHeight: "250px",
     backgroundColor: "#ccc",
     color: "#000",
+    padding: "15px",
   },
   strong: {
     fontWeight: "bold",
@@ -32,17 +33,19 @@ const CustomPopup = props => {
       <div style={styles.wrapper}>
         <div style={styles.header}>{observation.name}</div>
         <div style={styles.content}>
-          <p>
-            <span style={styles.strong}>Year: </span> {observation.year}
-          </p>
-          <p>
-            <span style={styles.strong}>Type: </span> {observation.type}
-          </p>
-          <p>
-            <span style={styles.strong}>Hynek score: </span> {observation.hynek}
-          </p>
-          <p>
-            <span style={styles.strong}>About: </span> {observation.description}
+          <p style={{ marginTop: 0 }}>
+            <span style={styles.strong}>Type: </span>
+            {observation.type}
+
+            <br />
+            <span style={styles.strong}>Year: </span>
+            {observation.year}
+
+            <br />
+            <br />
+            <span style={styles.strong}>About: </span>
+            <br />
+            {observation.description}
           </p>
         </div>
       </div>
