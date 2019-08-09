@@ -1,16 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 class GeoDisplay extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      lat: 51.505,
+      lng: -0.09,
+      zoom: 13,
+    };
+  }
   render() {
+    const { observations } = this.props;
+    const position = [this.state.lat, this.state.lng];
     return (
-      <div>
-        {this.props.observations.map(obs => (
-          <div>
-            <p> {`type: ${obs.type}: ${obs.decription}`}</p>
-          </div>
+      <Map style={{ height: "100vh" }} center={position} zoom={this.state.zoom}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+        />
+        {observations.map(obs => (
+          <Marker position={position}>
+            <Popup>
+              <span>{obs.description}</span>
+            </Popup>
+          </Marker>
         ))}
-      </div>
+      </Map>
     );
   }
 }
