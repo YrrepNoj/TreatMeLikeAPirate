@@ -25,9 +25,16 @@ class GeoDisplay extends React.Component {
 
     let observations = [];
     if (combinedObservations && combinedObservations.length) {
-      observations = combinedObservations.filter(
-        el => typeof Number(el.year) === "number" && Number(el.year) < 3000,
-      );
+      observations = combinedObservations;
+
+      if (this.props.filters && this.props.filters.interval) {
+        observations = observations.filter(
+          el =>
+            typeof Number(el.year) === "number" &&
+            Number(el.year) > this.props.filters.interval[0] &&
+            Number(el.year) < this.props.filters.interval[1],
+        );
+      }
     }
     const position = [this.state.lat, this.state.lng];
     return (

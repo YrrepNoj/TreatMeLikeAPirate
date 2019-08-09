@@ -6,12 +6,14 @@ import {
   SET_INTERVAL_FILTER,
 } from "./actions";
 
-import { parseUFOData, parseShipwreckData } from '../utils/dataParser'
+import { parseUFOData, parseShipwreckData } from "../utils/dataParser";
 
 export default (state = {}, action) => {
   switch (action.type) {
     case GET_SHIPWRECK_OBSERVATIONS_SUCCESS:
-      let formattedShipwreckObservations = parseShipwreckData(action.shipwreckObservations)
+      let formattedShipwreckObservations = parseShipwreckData(
+        action.shipwreckObservations,
+      );
       return {
         shipwreckObservations: formattedShipwreckObservations,
         ...state,
@@ -22,8 +24,8 @@ export default (state = {}, action) => {
         ...state,
       };
     case GET_UFO_OBSERVATIONS_SUCCESS:
-        let formattedUfoObservations = parseUFOData(action.ufoObservations)
-        console.log(formattedUfoObservations)
+      let formattedUfoObservations = parseUFOData(action.ufoObservations);
+      console.log(formattedUfoObservations);
       return {
         ufoObservations: formattedUfoObservations,
         ...state,
@@ -35,6 +37,7 @@ export default (state = {}, action) => {
       };
     case SET_INTERVAL_FILTER:
       return {
+        ...state,
         filters: { ...state.filters, interval: [...action.interval] },
       };
     default:
