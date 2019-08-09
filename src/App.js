@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
 import GeoDisplay from "./panels/GeoDisplay";
+import Grid from "./components/Grid";
 import { connect } from "react-redux";
 import {
   GET_UFO_OBSERVATIONS_REQUESTED,
@@ -14,10 +15,19 @@ class App extends Component {
     this.props.getUFOs();
   }
   render() {
+    const items = [
+      { id: "1", name: "Geographic Display", content: <GeoDisplay /> },
+      { id: "2", name: "Data Manager", content: <p>hello world 2</p> },
+    ];
+    const layout = [
+      { i: "1", x: 0, y: 0, w: 20, h: 20 },
+      { i: "2", x: 20, y: 0, w: 10, h: 10 },
+    ];
     return (
       <div>
-        <Header />
-        <GeoDisplay />
+        <Grid items={items} layout={layout} />
+        {/* <Header />
+         */}
       </div>
     );
   }
