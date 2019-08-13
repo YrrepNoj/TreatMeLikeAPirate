@@ -19,10 +19,13 @@ const shipwrecks = {
 }
 const shipwrecksArray = [
      'List_of_shipwrecks_in_international_waters',
-     'List_of_shipwrecks_in_the_Atlantic_Ocean',
      'List_of_shipwrecks_in_the_Pacific_Ocean',
      'List_of_shipwrecks_in_the_Indian_Ocean',
-     'List_of_shipwrecks_of_the_United_States'
+     'List_of_shipwrecks_of_the_United_States',
+     'List_of_shipwrecks_of_North_America',
+     'List_of_shipwrecks_of_Australia',
+     'List_of_shipwrecks_of_South_America',
+     'List_of_shipwrecks_of_Asia'
 ]
 const originString = "&origin=*"
 

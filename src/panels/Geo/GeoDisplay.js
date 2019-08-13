@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import Popup from "./Popup";
 import sizeMe from "react-sizeme";
+import OBSERVATION_TYPES from "../../utils/observation_types";
 
 class GeoDisplay extends React.Component {
   constructor() {
@@ -18,7 +19,23 @@ class GeoDisplay extends React.Component {
     map.invalidateSize();
   }
   render() {
-    const { ufoObservations } = this.props;
+    // const { ufoObservations } = this.props;
+    const { shipwreckObservations } = this.props;
+    const combinedObservations = shipwreckObservations;
+
+    let observations = [];
+    if (combinedObservations && combinedObservations.length) {
+      observations = combinedObservations;
+
+      if (this.props.filters && this.props.filters.interval) {
+        observations = observations.filter(
+          el =>
+            typeof Number(el.year) === "number" &&
+            Number(el.year) > this.props.filters.interval[0] &&
+            Number(el.year) < this.props.filters.interval[1],
+        );
+      }
+    }
     const position = [this.state.lat, this.state.lng];
     return (
       <Map
@@ -36,8 +53,8 @@ class GeoDisplay extends React.Component {
           time=""
           tilematrixset="GoogleMapsCompatible_Level"
         />
-        {ufoObservations &&
-          ufoObservations.map(obs => (
+        {observations &&
+          observations.map(obs => (
             <Marker key={obs.id} position={obs.coord}>
               <Popup observation={obs} />
             </Marker>

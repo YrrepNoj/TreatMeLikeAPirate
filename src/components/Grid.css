@@ -5,7 +5,8 @@
 .react-grid-item {
   transition: all 200ms ease;
   transition-property: left, top;
-  outline: 2px solid #ccc;
+  outline: 1px solid #000;
+  box-shadow: 2px 2px 3px #0005;
 }
 .react-grid-item.cssTransforms {
   transition-property: transform;
@@ -66,7 +67,7 @@
 body {
   font-family: "courier";
   color: #fff;
-  background-color: #666;
+  background-color: #ccc;
 }
 
 #map {
