@@ -20,7 +20,7 @@ The probject can be seen at: https://yrrepnoj.github.io/TreatMeLikeAPirate/
 ### Getting Started
 To run this project, 
  1) clone the reposity
- 2) run `npm install` (if you are curious about npm or have not yet installed it, more information can be found [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+ 2) run `npm install` (if you are curious about npm or have not yet installed it, more information can be found [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm))
  3) run `npm run`  -  This should then open a new browser tab that will load with the project!
  
  
