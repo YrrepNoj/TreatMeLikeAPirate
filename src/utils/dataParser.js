@@ -134,18 +134,17 @@ export function parseShipwreckData(rawData) {
         coord: pieces[3],
         hynekScale: 1,
       };
-
       allObservations.push(observation);
+
     }
   });
 
   allObservations = allObservations.filter(
     el =>
       Array.isArray(el.coord) &&
-      typeof el.coord[0] === "number" &&
-      typeof el.coord[1] === "number",
+      typeof el.coord[0] === "number" && !isNaN(el.coord[0]) &&
+      typeof el.coord[1] === "number" && !isNaN(el.coord[1]),
   );
-
   return allObservations;
 }
 
